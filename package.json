@@ -1,0 +1,22 @@
+{
+  "name": "braham-dev-portfolio",
+  "version": "1.0.0",
+  "description": "Braham Dev - Junior Linux Engineer Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server",
+    "deploy": "gh-pages -d ."
+  },
+  "keywords": [
+    "linux",
+    "devops",
+    "portfolio",
+    "rhcsa"
+  ],
+  "author": "Braham Dev",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "live-server": "^1.2.2"
+  }
+}
