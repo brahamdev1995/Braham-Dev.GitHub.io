@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braham Dev - DevOps Engineer</title>
+    
+    <!-- Modern CSS Framework -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Animated CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --accent: #06b6d4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e1b4b 100%);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .typing-effect {
+            border-right: 4px solid var(--accent);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--accent); }
+        }
+        
+        .skill-pill {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-pill:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--dark);
+        }
+        
+        .particle {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle span {
+            position: absolute;
+            display: block;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: animate 20s linear infinite;
+        }
+        
+        @keyframes animate {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        .cert-badge {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cert-badge::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 15px;
+            z-index: -1;
+            animation: glowing 3s linear infinite;
+        }
+        
+        @keyframes glowing {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particle">
+        <script>
+            for (let i = 0; i < 50; i++) {
+                let span = document.createElement('span');
+                span.style.left = Math.random() * 100 + '%';
+                span.style.animationDelay = Math.random() * 20 + 's';
+                span.style.animationDuration = Math.random() * 20 + 10 + 's';
+                document.querySelector('.particle').appendChild(span);
+            }
+        </script>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark navbar-expand-lg py-4">
+        <div class="container">
+            <a class="navbar-brand fs-2 fw-bold gradient-text" href="#">Braham Dev</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#certifications">Certifications</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="container py-5">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-6 animate__animated animate__fadeInLeft">
+                <span class="badge bg-primary mb-4 px-3 py-2">🚀 Junior Linux Engineer</span>
+                <h1 class="display-3 fw-bold mb-4">
+                    Hi, I'm <span class="gradient-text">Braham Dev</span>
+                </h1>
+                <div class="typing-effect fs-3 mb-4">
+                    RHCSA | Containers Specialist | DevOps Engineer in Progress
+                </div>
+                <p class="lead mb-4">
+                    Transforming infrastructure into code with 4+ years of experience in Linux, 
+                    Cloud Computing, and Containerization. Passionate about automation and DevOps practices.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="#contact" class="btn btn-primary btn-lg px-5 py-3">Hire Me</a>
+                    <a href="#experience" class="btn btn-outline-light btn-lg px-5 py-3">View Work</a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="mt-5">
+                    <a href="#" class="text-white me-4 fs-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-white me-4 fs-3"><i class="bi bi-github"></i></a>
+                    <a href="#" class="text-white me-4 fs-3"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="text-white me-4 fs-3"><i class="bi bi-dev"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 animate__animated animate__fadeInRight text-center">
+                <div class="floating">
+                    <img src="https://img.icons8.com/fluency/240/000000/red-hat.png" alt="Linux Engineer" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="glass-card p-4 text-center">
+                    <h2 class="display-4 fw-bold gradient-text">4+</h2>
+                    <p class="text-light">Years Experience</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card p-4 text-center">
+                    <h2 class="display-4 fw-bold gradient-text">2</h2>
+                    <p class="text-light">Red Hat Certifications</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card p-4 text-center">
+                    <h2 class="display-4 fw-bold gradient-text">3</h2>
+                    <p class="text-light">Cloud Platforms</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card p-4 text-center">
+                    <h2 class="display-4 fw-bold gradient-text">500+</h2>
+                    <p class="text-light">Users Supported</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="container py-5">
+        <h2 class="text-center display-5 fw-bold mb-5">
+            <span class="gradient-text">Professional Journey</span>
+        </h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="glass-card p-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <img src="https://img.icons8.com/fluency/48/000000/company.png" width="40" class="me-3">
+                        <div>
+                            <h3 class="fw-bold mb-1">Junior Linux Engineer</h3>
+                            <p class="text-primary mb-0">Teamwork India Pvt. Ltd. | 2022 - Present</p>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Managing enterprise Linux infrastructure</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Docker & Podman container orchestration</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Performance monitoring & optimization</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> CI/CD pipeline implementation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="glass-card p-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <img src="https://img.icons8.com/fluency/48/000000/university.png" width="40" class="me-3">
+                        <div>
+                            <h3 class="fw-bold mb-1">Desktop Support Engineer</h3>
+                            <p class="text-primary mb-0">Delhi University | 2019 - 2022</p>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> 500+ users infrastructure support</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Sophos Firewall configuration</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Cross-platform IT support</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> 98% satisfaction rate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container py-5">
+        <h2 class="text-center display-5 fw-bold mb-5">
+            <span class="gradient-text">Technical Arsenal</span>
+        </h2>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card p-4 text-center h-100">
+                    <div class="display-1 mb-3">🐧</div>
+                    <h4 class="fw-bold mb-3">Linux</h4>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-gradient" role="progressbar" style="width: 95%; background: linear-gradient(45deg, var(--primary), var(--secondary));"></div>
+                    </div>
+                    <span class="skill-pill">RHEL</span>
+                    <span class="skill-pill">CentOS</span>
+                    <span class="skill-pill">Ubuntu</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card p-4 text-center h-100">
+                    <div class="display-1 mb-3">☁️</div>
+                    <h4 class="fw-bold mb-3">Cloud</h4>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-gradient" role="progressbar" style="width: 85%; background: linear-gradient(45deg, var(--primary), var(--secondary));"></div>
+                    </div>
+                    <span class="skill-pill">AWS</span>
+                    <span class="skill-pill">GCP</span>
+                    <span class="skill-pill">Azure</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card p-4 text-center h-100">
+                    <div class="display-1 mb-3">🐳</div>
+                    <h4 class="fw-bold mb-3">Containers</h4>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-gradient" role="progressbar" style="width: 90%; background: linear-gradient(45deg, var(--primary), var(--secondary));"></div>
+                    </div>
+                    <span class="skill-pill">Docker</span>
+                    <span class="skill-pill">Podman</span>
+                    <span class="skill-pill">K8s</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card p-4 text-center h-100">
+                    <div class="display-1 mb-3">🔧</div>
+                    <h4 class="fw-bold mb-3">DevOps</h4>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-gradient" role="progressbar" style="width: 75%; background: linear-gradient(45deg, var(--primary), var(--secondary));"></div>
+                    </div>
+                    <span class="skill-pill">Ansible</span>
+                    <span class="skill-pill">Prometheus</span>
+                    <span class="skill-pill">Grafana</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="container py-5">
+        <h2 class="text-center display-5 fw-bold mb-5">
+            <span class="gradient-text">Professional Certifications</span>
+        </h2>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="cert-badge glass-card p-4 text-center h-100">
+                    <img src="https://img.icons8.com/fluency/96/000000/red-hat.png" width="60" class="mb-3">
+                    <h4 class="fw-bold mb-2">RHCSA</h4>
+                    <p class="text-primary mb-2">Red Hat Certified System Administrator</p>
+                    <span class="badge bg-success">2024</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="cert-badge glass-card p-4 text-center h-100">
+                    <img src="https://img.icons8.com/fluency/96/000000/docker.png" width="60" class="mb-3">
+                    <h4 class="fw-bold mb-2">Containers</h4>
+                    <p class="text-primary mb-2">Red Hat Certified Specialist</p>
+                    <span class="badge bg-success">2024</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="cert-badge glass-card p-4 text-center h-100">
+                    <img src="https://img.icons8.com/fluency/96/000000/red-hat.png" width="60" class="mb-3">
+                    <h4 class="fw-bold mb-2">RHCE</h4>
+                    <p class="text-warning mb-2">Red Hat Certified Engineer</p>
+                    <span class="badge bg-warning text-dark">In Progress</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="cert-badge glass-card p-4 text-center h-100">
+                    <img src="https://img.icons8.com/fluency/96/000000/amazon-web-services.png" width="60" class="mb-3">
+                    <h4 class="fw-bold mb-2">AWS</h4>
+                    <p class="text-warning mb-2">Solutions Architect</p>
+                    <span class="badge bg-warning text-dark">Learning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container py-5">
+        <div class="glass-card p-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">
+                        Let's <span class="gradient-text">Connect</span>
+                    </h2>
+                    <p class="lead mb-4">
+                        Open to opportunities in DevOps Engineering, Cloud Computing, and Linux Administration.
+                        Available for immediate joining.
+                    </p>
+                    <div class="d-flex gap-3 mb-4">
+                        <div>
+                            <i class="bi bi-envelope-fill text-primary fs-4"></i>
+                            <p class="mb-0">braham.dev@email.com</p>
+                        </div>
+                        <div>
+                            <i class="bi bi-telephone-fill text-primary fs-4"></i>
+                            <p class="mb-0">+91 XXXXXXXXXX</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-lg px-5 py-3">
+                        <i class="bi bi-download me-2"></i>Download Resume
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://img.icons8.com/fluency/240/000000/email-sign.png" class="img-fluid floating">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container py-5 text-center">
+        <p class="text-light opacity-75">
+            © 2024 Braham Dev - Junior Linux Engineer & DevOps Engineer in Progress
+        </p>
+        <p class="text-light opacity-50 small">
+            Built with ❤️ on CentOS 9 | 4+ Years of Excellence
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
