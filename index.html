@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Braham Dev | Junior Linux & DevOps Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #020617;
+      --text: #e5e7eb;
+      --accent: #38bdf8;
+      --muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: var(--accent);
+    }
+
+    header p {
+      color: var(--muted);
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+
+    section {
+      background: var(--card);
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li::before {
+      content: "▹";
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-box {
+      background: #020617;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #1e293b;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #020617;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(56,189,248,0.5);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <h1>Braham Dev</h1>
+      <p>Junior Linux Engineer | Aspiring DevOps Engineer</p>
+      <p>RHCSA Certified • Preparing for RHCE</p>
+    </header>
+
+    <section>
+      <h2>About Me</h2>
+      <p>
+        I am a Junior Linux Engineer at <strong>Teamwork India Pvt. Ltd.</strong> with over
+        four years of IT experience. Previously, I worked as a Desktop Support Engineer
+        at Delhi University. I am passionate about Linux administration, cloud computing,
+        containerization, and DevOps practices.
+      </p>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <ul>
+        <li>Red Hat Certified System Administrator (RHCSA)</li>
+        <li>Red Hat Certified Specialist in Containers (Docker & Podman)</li>
+        <li>Preparing for RHCE</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h3>Operating Systems</h3>
+          <p>Linux, Windows, macOS</p>
+        </div>
+        <div class="skill-box">
+          <h3>Cloud</h3>
+          <p>AWS, Google Cloud Platform, Microsoft Azure</p>
+        </div>
+        <div class="skill-box">
+          <h3>Containers</h3>
+          <p>Docker, Podman</p>
+        </div>
+        <div class="skill-box">
+          <h3>Security & Monitoring</h3>
+          <p>Sophos Firewall, Industry Monitoring Tools</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Resume</h2>
+      <p>You can download my resume using the button below.</p>
+      <div class="buttons">
+        <a class="btn" href="resume.pdf" download>Download Resume (PDF)</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>📧 Email: your-email@example.com</p>
+      <p>💼 GitHub: https://github.com/<your-username></p>
+    </section>
+
+    <footer>
+      © 2026 Braham Dev • Built on Linux • Hosted on GitHub Pages
+    </footer>
+
+  </div>
+</body>
+</html>
+
