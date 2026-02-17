@@ -30,7 +30,7 @@ I'm a passionate Junior Linux Engineer with over 4 years of IT experience. Curre
 ## 📫 Contact
 
 - Email: brahamd1995@gmail.com
-- LinkedIn: [linkedin.com/in/Braham Dev](linkedin.com/in/braham-dev-186457126)
+- LinkedIn: [linkedin.com/in/braham-dev-186457126](linkedin.com/in/braham-dev-186457126)
 - GitHub: [github.com/brahamd1995@gmail.com](https://github.com/brahamdev)
 
 ## 🚀 Quick Start
