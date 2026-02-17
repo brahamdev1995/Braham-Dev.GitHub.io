@@ -1,143 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Braham Dev - DevOps Engineer</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<title>Braham Dev Hair | Linux & DevOps Engineer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* =======================
+   Global Theme
+======================= */
+:root {
+  --bg-main: #020617;
+  --bg-card: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.15);
+  --text-main: #e5e7eb;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-2: #22d3ee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, #020617, #000),
+    linear-gradient(120deg, #020617, #020617);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* =======================
+   Header
+======================= */
+header {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.hero {
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  color: var(--text-muted);
+}
+
+.hero .buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 22px;
+  margin: 10px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2563eb, var(--accent));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 15px 35px rgba(37,99,235,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(56,189,248,0.6);
+}
+
+/* =======================
+   Sections
+======================= */
+section {
+  padding: 80px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  color: var(--accent);
+}
+
+.section-title p {
+  margin-top: 10px;
+  color: var(--text-muted);
+}
+
+/* =======================
+   Cards Grid
+======================= */
+.grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 30px;
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.7),
+    inset 0 1px 1px rgba(255,255,255,0.1);
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow:
+    0 35px 70px rgba(0,0,0,0.9),
+    0 0 25px rgba(56,189,248,0.4);
+}
+
+.card h3 {
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card ul li {
+  padding: 6px 0;
+  color: var(--text-main);
+}
+
+/* =======================
+   Experience Timeline
+======================= */
+.timeline {
+  max-width: 900px;
+  margin: auto;
+}
+
+.timeline-item {
+  background: var(--bg-card);
+  border-left: 4px solid var(--accent);
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+}
+
+.timeline-item h4 {
+  color: var(--accent);
+}
+
+/* =======================
+   Contact
+======================= */
+.contact {
+  text-align: center;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+/* =======================
+   Footer
+======================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+</style>
 </head>
+
 <body>
-    <!-- 3D Background Animation -->
-    <div class="scene" id="scene"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Braham Dev</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<!-- =======================
+     HERO
+======================= -->
+<header>
+  <div class="hero">
+    <h1>Braham Dev Hair</h1>
+    <p>Junior Linux Engineer • RHCSA • DevOps Learner</p>
 
-    <!-- Hero Section with 3D Card -->
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="hero-content">
-                        <h1 class="animated-text">Braham Dev</h1>
-                        <h3 class="typed-text"></h3>
-                        <p class="lead">Junior Linux Engineer at Teamwork India Pvt. Ltd. | RHCSA Certified | DevOps Enthusiast</p>
-                        <a href="#contact" class="btn btn-primary">Hire Me</a>
-                        <a href="resume.pdf" class="btn btn-outline-primary" id="download-resume">Download Resume</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card-3d">
-                        <div class="card__face card__face--front">
-                            <i class="fas fa-terminal"></i>
-                            <h4>Linux Engineer</h4>
-                        </div>
-                        <div class="card__face card__face--back">
-                            <i class="fas fa-cloud"></i>
-                            <h4>Cloud Expert</h4>
-                        </div>
-                        <div class="card__face card__face--right">
-                            <i class="fas fa-docker"></i>
-                            <h4>Container Specialist</h4>
-                        </div>
-                        <div class="card__face card__face--left">
-                            <i class="fas fa-shield-alt"></i>
-                            <h4>Security Focused</h4>
-                        </div>
-                        <div class="card__face card__face--top">
-                            <i class="fas fa-chart-line"></i>
-                            <h4>Monitoring Guru</h4>
-                        </div>
-                        <div class="card__face card__face--bottom">
-                            <i class="fas fa-certificate"></i>
-                            <h4>RHCSA Certified</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="buttons">
+      <a href="#contact" class="btn">Contact Me</a>
+      <a href="resume/Braham_Dev_Hair_Resume.pdf" class="btn" download>
+        Download Resume
+      </a>
+    </div>
+  </div>
+</header>
 
-    <!-- Resume Upload Section -->
-    <section id="resume-upload" class="upload-section">
-        <div class="container">
-            <div class="upload-card">
-                <h2><i class="fas fa-cloud-upload-alt"></i> Upload Your Resume</h2>
-                <p>Upload your resume to get in touch with Braham</p>
-                <form id="uploadForm">
-                    <div class="file-upload-wrapper">
-                        <input type="file" name="resume" id="resume" accept=".pdf,.doc,.docx">
-                        <label for="resume" class="file-upload-label">
-                            <i class="fas fa-file-pdf"></i> Choose File
-                        </label>
-                        <span id="file-name">No file chosen</span>
-                    </div>
-                    <button type="submit" class="btn btn-success">Upload Resume</button>
-                </form>
-            </div>
-        </div>
-    </section>
+<!-- =======================
+     ABOUT
+======================= -->
+<section>
+  <div class="section-title">
+    <h2>About Me</h2>
+    <p>Linux, Cloud, Containers & DevOps</p>
+  </div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item" data-progress="90">
-                    <i class="fab fa-linux"></i>
-                    <h3>Linux</h3>
-                    <div class="progress-bar-3d"></div>
-                </div>
-                <div class="skill-item" data-progress="85">
-                    <i class="fab fa-aws"></i>
-                    <h3>AWS</h3>
-                    <div class="progress-bar-3d"></div>
-                </div>
-                <div class="skill-item" data-progress="80">
-                    <i class="fab fa-docker"></i>
-                    <h3>Docker/Podman</h3>
-                    <div class="progress-bar-3d"></div>
-                </div>
-                <div class="skill-item" data-progress="75">
-                    <i class="fab fa-windows"></i>
-                    <h3>Windows Server</h3>
-                    <div class="progress-bar-3d"></div>
-                </div>
-                <div class="skill-item" data-progress="70">
-                    <i class="fas fa-firewall"></i>
-                    <h3>Sophos Firewall</h3>
-                    <div class="progress-bar-3d"></div>
-                </div>
-                <div class="skill-item" data-progress="85">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Monitoring Tools</h3>
-                    <div class="progress-bar-3d"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="grid">
+    <div class="card">
+      <h3>Professional Summary</h3>
+      <p>
+        Linux Engineer with 4+ years of IT experience. Strong background in
+        Linux system administration, cloud platforms, container technologies,
+        and DevOps fundamentals. Currently working at Teamwork India Pvt Ltd.
+      </p>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <div class="card">
+      <h3>Core Skills</h3>
+      <ul>
+        <li>Linux (RHEL / CentOS / Rocky)</li>
+        <li>AWS • Azure • GCP</li>
+        <li>Docker • Podman • Kubernetes (Basic)</li>
+        <li>Git & GitHub</li>
+        <li>Ansible (Learning)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =======================
+     EXPERIENCE
+======================= -->
+<section>
+  <div class="section-title">
+    <h2>Experience</h2>
+    <p>My professional journey</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <h4>Junior Linux Engineer — Teamwork India Pvt Ltd</h4>
+      <p>Aug 2023 – Present</p>
+      <p>Linux server administration, cloud operations, container management,
+         and infrastructure troubleshooting.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h4>Desktop Support Engineer — Delhi University</h4>
+      <p>Sep 2019 – Feb 2022</p>
+      <p>End-user support, system maintenance, OS installation, and IT operations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =======================
+     CERTIFICATIONS
+======================= -->
+<section>
+  <div class="section-title">
+    <h2>Certifications</h2>
+    <p>Validated technical expertise</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Red Hat</h3>
+      <ul>
+        <li>RHCSA</li>
+        <li>Red Hat Certified Specialist in Containers</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =======================
+     CONTACT
+======================= -->
+<section id="contact">
+  <div class="section-title">
+    <h2>Contact</h2>
+    <p>Let’s connect</p>
+  </div>
+
+  <div class="contact">
+    <p>📧 Email: your-email@example.com</p>
+    <p>🐙 GitHub: github.com/your-username</p>
+    <p>💼 LinkedIn: linkedin.com/in/your-profile</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Braham Dev Hair • Linux & DevOps Engineer
+</footer>
+
 </body>
 </html>
