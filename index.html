@@ -6,138 +6,107 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-/* =======================
-   Global Theme
-======================= */
 :root {
-  --bg-main: #020617;
-  --bg-card: rgba(255,255,255,0.08);
+  --bg: #020617;
+  --card: rgba(255,255,255,0.08);
   --border: rgba(255,255,255,0.15);
-  --text-main: #e5e7eb;
-  --text-muted: #94a3b8;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
   --accent: #38bdf8;
-  --accent-2: #22d3ee;
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: "Segoe UI", system-ui, sans-serif;
 }
 
 body {
-  background:
-    radial-gradient(circle at top, #020617, #000),
-    linear-gradient(120deg, #020617, #020617);
-  color: var(--text-main);
-  line-height: 1.6;
-}
-
-/* =======================
-   Header
-======================= */
-header {
+  background: radial-gradient(circle at top, #020617, #000);
+  color: var(--text);
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+/* ---------- HEADER ---------- */
+header {
   text-align: center;
-  padding: 40px;
+  padding: 50px 20px 20px;
 }
 
-.hero {
-  max-width: 800px;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+header h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, var(--accent), #22d3ee);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.hero p {
-  margin-top: 15px;
-  font-size: 1.3rem;
-  color: var(--text-muted);
-}
-
-.hero .buttons {
-  margin-top: 30px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 14px 22px;
-  margin: 10px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #2563eb, var(--accent));
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 15px 35px rgba(37,99,235,0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 25px 50px rgba(56,189,248,0.6);
-}
-
-/* =======================
-   Sections
-======================= */
-section {
-  padding: 80px 20px;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-title h2 {
-  font-size: 2.5rem;
-  color: var(--accent);
-}
-
-.section-title p {
+header p {
   margin-top: 10px;
-  color: var(--text-muted);
+  color: var(--muted);
+  font-size: 1.2rem;
 }
 
-/* =======================
-   Cards Grid
-======================= */
-.grid {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+/* ---------- NAV ---------- */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 25px;
+  flex-wrap: wrap;
 }
 
-.card {
-  background: var(--bg-card);
+nav button {
+  padding: 12px 20px;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  border-radius: 22px;
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+nav button:hover,
+nav button.active {
+  background: linear-gradient(135deg, #2563eb, var(--accent));
+  box-shadow: 0 10px 30px rgba(56,189,248,0.5);
+}
+
+/* ---------- CONTENT ---------- */
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.section {
+  display: none;
+  animation: fade 0.4s ease;
+}
+
+.section.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- CARD ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
   padding: 30px;
-  backdrop-filter: blur(18px);
-  box-shadow:
-    0 20px 40px rgba(0,0,0,0.7),
-    inset 0 1px 1px rgba(255,255,255,0.1);
-  transition: all 0.4s ease;
+  margin-bottom: 25px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
 }
 
-.card:hover {
-  transform: translateY(-15px) scale(1.03);
-  box-shadow:
-    0 35px 70px rgba(0,0,0,0.9),
-    0 0 25px rgba(56,189,248,0.4);
-}
-
-.card h3 {
+.card h2 {
   color: var(--accent);
   margin-bottom: 15px;
 }
@@ -148,169 +117,124 @@ section {
 
 .card ul li {
   padding: 6px 0;
-  color: var(--text-main);
 }
 
-/* =======================
-   Experience Timeline
-======================= */
-.timeline {
-  max-width: 900px;
-  margin: auto;
+/* ---------- BUTTON ---------- */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, var(--accent));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(37,99,235,0.5);
 }
 
-.timeline-item {
-  background: var(--bg-card);
-  border-left: 4px solid var(--accent);
-  padding: 20px 25px;
-  margin-bottom: 25px;
-  border-radius: 15px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-}
-
-.timeline-item h4 {
-  color: var(--accent);
-}
-
-/* =======================
-   Contact
-======================= */
-.contact {
-  text-align: center;
-}
-
-.contact p {
-  font-size: 1.1rem;
-  margin: 10px 0;
-}
-
-/* =======================
-   Footer
-======================= */
+/* ---------- FOOTER ---------- */
 footer {
   text-align: center;
-  padding: 30px;
+  padding: 25px;
+  color: var(--muted);
   font-size: 0.9rem;
-  color: var(--text-muted);
 }
 </style>
 </head>
 
 <body>
 
-<!-- =======================
-     HERO
-======================= -->
 <header>
-  <div class="hero">
-    <h1>Braham Dev Hair</h1>
-    <p>Junior Linux Engineer • RHCSA • DevOps Learner</p>
-
-    <div class="buttons">
-      <a href="#contact" class="btn">Contact Me</a>
-      <a href="resume/Braham_Dev_Hair_Resume.pdf" class="btn" download>
-        Download Resume
-      </a>
-    </div>
-  </div>
+  <h1>Braham Dev Hair</h1>
+  <p>Junior Linux Engineer • RHCSA • DevOps Learner</p>
 </header>
 
-<!-- =======================
-     ABOUT
-======================= -->
-<section>
-  <div class="section-title">
-    <h2>About Me</h2>
-    <p>Linux, Cloud, Containers & DevOps</p>
-  </div>
+<nav>
+  <button class="active" onclick="showSection('about')">About</button>
+  <button onclick="showSection('skills')">Skills</button>
+  <button onclick="showSection('experience')">Experience</button>
+  <button onclick="showSection('certs')">Certifications</button>
+  <button onclick="showSection('contact')">Contact</button>
+</nav>
 
-  <div class="grid">
+<main>
+
+  <!-- ABOUT -->
+  <section id="about" class="section active">
     <div class="card">
-      <h3>Professional Summary</h3>
+      <h2>About Me</h2>
       <p>
-        Linux Engineer with 4+ years of IT experience. Strong background in
-        Linux system administration, cloud platforms, container technologies,
-        and DevOps fundamentals. Currently working at Teamwork India Pvt Ltd.
+        Linux Engineer with 4+ years of IT experience. Hands-on with Linux system
+        administration, cloud platforms, container technologies, and DevOps
+        fundamentals. Currently working at Teamwork India Pvt Ltd.
       </p>
     </div>
+  </section>
 
+  <!-- SKILLS -->
+  <section id="skills" class="section">
     <div class="card">
-      <h3>Core Skills</h3>
+      <h2>Technical Skills</h2>
       <ul>
-        <li>Linux (RHEL / CentOS / Rocky)</li>
+        <li>Linux (RHEL, CentOS, Rocky)</li>
         <li>AWS • Azure • GCP</li>
         <li>Docker • Podman • Kubernetes (Basic)</li>
         <li>Git & GitHub</li>
         <li>Ansible (Learning)</li>
       </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- =======================
-     EXPERIENCE
-======================= -->
-<section>
-  <div class="section-title">
-    <h2>Experience</h2>
-    <p>My professional journey</p>
-  </div>
-
-  <div class="timeline">
-    <div class="timeline-item">
-      <h4>Junior Linux Engineer — Teamwork India Pvt Ltd</h4>
-      <p>Aug 2023 – Present</p>
-      <p>Linux server administration, cloud operations, container management,
-         and infrastructure troubleshooting.</p>
-    </div>
-
-    <div class="timeline-item">
-      <h4>Desktop Support Engineer — Delhi University</h4>
-      <p>Sep 2019 – Feb 2022</p>
-      <p>End-user support, system maintenance, OS installation, and IT operations.</p>
-    </div>
-  </div>
-</section>
-
-<!-- =======================
-     CERTIFICATIONS
-======================= -->
-<section>
-  <div class="section-title">
-    <h2>Certifications</h2>
-    <p>Validated technical expertise</p>
-  </div>
-
-  <div class="grid">
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
     <div class="card">
-      <h3>Red Hat</h3>
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>Teamwork India Pvt Ltd</strong><br>Junior Linux Engineer (Aug 2023 – Present)</li>
+        <li><strong>Delhi University</strong><br>Desktop Support Engineer (Sep 2019 – Feb 2022)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs" class="section">
+    <div class="card">
+      <h2>Certifications</h2>
       <ul>
         <li>RHCSA</li>
         <li>Red Hat Certified Specialist in Containers</li>
       </ul>
+      <a class="btn" href="resume/Braham_Dev_Hair_Resume.pdf" download>
+        Download Resume
+      </a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- =======================
-     CONTACT
-======================= -->
-<section id="contact">
-  <div class="section-title">
-    <h2>Contact</h2>
-    <p>Let’s connect</p>
-  </div>
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="card">
+      <h2>Contact</h2>
+      <p>📧 Email: your-email@example.com</p>
+      <p>🐙 GitHub: github.com/your-username</p>
+      <p>💼 LinkedIn: linkedin.com/in/your-profile</p>
+    </div>
+  </section>
 
-  <div class="contact">
-    <p>📧 Email: your-email@example.com</p>
-    <p>🐙 GitHub: github.com/your-username</p>
-    <p>💼 LinkedIn: linkedin.com/in/your-profile</p>
-  </div>
-</section>
+</main>
 
 <footer>
   © 2026 Braham Dev Hair • Linux & DevOps Engineer
 </footer>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
 
 </body>
 </html>
